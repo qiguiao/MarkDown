@@ -1,0 +1,92 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <title>mditor</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            overflow-y: scroll;
+        }
+
+        .wrapper textarea {
+            width: 400px;
+            min-height: 800px !important;
+        }
+
+        .btn_item {
+            text-align: right;
+            position: relative;
+            /* top: -50px; */
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .btn_item span {
+            width: 150px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            display: inline-block;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+        .btn_item span:nth-child(1){
+            color: #fff;
+            background: skyblue;
+        }
+        .btn_item span:nth-child(2){
+            color: #fff;
+            background: limegreen;
+        }
+        .btn_item span:nth-child(3){
+            color: #ccc;
+            background: #eee;
+        }
+        .marquee{
+            position: relative;
+            /* top: -70px; */
+            letter-spacing: 5px;
+            color:coral;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <marquee class="marquee" behavior="alternate" direction="">全屏书写效果更棒哦</marquee>
+        <div class="btn_item">
+            <span onclick="getContent()">获取markdown</span>
+            <span onclick="getHtml()">获取html</span>
+            <span onclick="insert()">插入内容</span>
+        </div>
+        <textarea id="md_editor">
+            欢迎使用Mditor  
+# Jaket</textarea>
+    </div>
+    <script type="text/javascript" src="src/js/jquery.js"></script>
+    <script type="text/javascript" src="src/mditor.js"></script>
+    <script type="text/javascript">
+        // 写在前面
+        // 感谢 剧中人 提供思路   
+        var editor = new mditor(document.getElementById('md_editor'));
+        function getContent() {
+            alert(editor.getContent());
+        }
+        function getHtml() {
+            alert(editor.getHtml());
+        }
+        function insert() {
+            editor.insert(' Jaket ');
+        }
+    </script>
+</body>
+
+</html>
